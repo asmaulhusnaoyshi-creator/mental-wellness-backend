@@ -4,7 +4,7 @@ const fetch = require('node-fetch');
 const cors = require('cors');
 
 const app = express();
-const PORT = 3000;
+
 
 // Allow requests from any origin (you can restrict this later)
 app.use(cors());
@@ -49,7 +49,9 @@ app.post('/chat', async (req, res) => {
   }
 });
 
-// Listen on all network interfaces
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, '0.0.0.0', () => {
-  console.log(`Mental Wellness backend running at http://0.0.0.0:${PORT}`);
+  console.log(`Mental Wellness backend running on port ${PORT}`);
 });
+
